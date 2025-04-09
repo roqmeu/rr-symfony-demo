@@ -1,0 +1,5 @@
+security:
+    firewalls:
+        main:
+            security: false
+            lazy: true

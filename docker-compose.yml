@@ -1,0 +1,41 @@
+networks:
+  default:
+    name: symfony-demo
+    external: false
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./deploy/nginx/Dockerfile
+    ports:
+      - 8020:80
+    depends_on:
+      - php
+
+  php:
+    user: root
+    build:
+      context: .
+      dockerfile: ./deploy/php/Dockerfile
+    environment:
+      PHP_IDE_CONFIG: "serverName=symfony-demo.lan"
+    ports:
+      - 8022:80
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - rabbitmq
+      - redis
+    command: php-fpm -p /usr/local
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - 8024:5672
+      - 8026:15672
+
+  redis:
+    image: redis:7.4
+    ports:
+      - 8028:6379

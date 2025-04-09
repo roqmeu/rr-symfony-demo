@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+.php-version
+
+/k6-report.*.html
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/*/*
+/vendor/
+!/**/.gitkeep
+###< symfony/framework-bundle ###
