@@ -1,0 +1,24 @@
+framework:
+    messenger:
+        failure_transport: failed
+
+        transports:
+            async:
+                dsn: '%env(resolve:MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    auto_setup: true
+                    verify: false
+                    confirm_timeout: 0.5
+                    connect_timeout: 0.5
+                    write_timeout: 0.5
+                    read_timeout: 0.5
+                    heartbeat: 60
+                    exchange:
+                        name: 'symfony-demo.async'
+                        type: direct
+
+            failed: 'in-memory://'
+
+        routing:
+            'App\Message\CommentCreateMessage': async
+            'App\Message\OnCommentCreatedMessage': async

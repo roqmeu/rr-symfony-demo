@@ -1,0 +1,7 @@
+parameters:
+    .container.dumper.inline_factories: true
+
+framework:
+    secret: '%env(APP_SECRET)%'
+
+    enabled_locales: ['en', 'ru']

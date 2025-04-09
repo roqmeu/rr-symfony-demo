@@ -1,0 +1,2 @@
+framework:
+    lock: '%env(resolve:LOCK_DSN)%'

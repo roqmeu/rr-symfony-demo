@@ -1,0 +1,43 @@
+name: symfony-roadrunner-workshop-2025-04
+
+networks:
+  default:
+    name: symfony-roadrunner-workshop-2025-04
+    external: false
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./deploy/nginx/Dockerfile
+    ports:
+      - 8020:80
+    depends_on:
+      - php
+
+  php:
+    user: root
+    image: ghcr.io/roqmeu/symfony-roadrunner-workshop-2025-04/php:latest
+    build:
+      context: .
+      dockerfile: ./deploy/php/Dockerfile
+    environment:
+      PHP_IDE_CONFIG: "serverName=symfony-roadrunner-workshop-2025-04.lan"
+    ports:
+      - 8022:8080
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - rabbitmq
+      - redis
+    command: php-fpm
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - 8024:15672
+
+  redis:
+    image: redis:7.4
+    ports:
+      - 8026:6379
