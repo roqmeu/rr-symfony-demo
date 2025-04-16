@@ -12,3 +12,5 @@
 1. После завершения теста в корне проекта сохраняется результат в файле [/php-fpm.report.html](../php-fpm.report.html)
 2. Файл [/php-fpm.report.html](../php-fpm.report.html) можно в любое время после теста открыть в браузере и ещё раз изучить
 3. Пример файла с результатом - [/docs/example.php-fpm.report.html](./example.php-fpm.report.html)
+
+[Далее >> Установка RoadRunner](./03_Setup_RoadRunner.md)

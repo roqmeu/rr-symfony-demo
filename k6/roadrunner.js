@@ -34,7 +34,7 @@ export const options = {
 };
 
 const commentId = random(1, 150);
-const postId = random(1, 150);
+const postId = random(1, 30);
 
 export function ok() {
     http.get(

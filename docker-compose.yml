@@ -31,6 +31,7 @@ services:
       - rabbitmq
       - redis
     command: php-fpm
+    restart: unless-stopped
 
   rabbitmq:
     image: rabbitmq:3.13-management

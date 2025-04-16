@@ -21,4 +21,3 @@ framework:
 
         routing:
             'App\Message\CommentCreateMessage': async
-            'App\Message\OnCommentCreatedMessage': async
