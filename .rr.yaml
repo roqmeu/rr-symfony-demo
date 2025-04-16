@@ -9,6 +9,8 @@ http:
   address: 0.0.0.0:8080
   pool:
     debug: false
+    max_jobs: 1000
+    num_workers: 4
   middleware: [ "static", "gzip" ]
   uploads:
     forbid: [ ".php", ".exe", ".bat" ]
@@ -20,7 +22,7 @@ logs:
   mode: production
   channels:
     http:
-      level: debug # Log all http requests, set to info to disable
+      level: warn # Log all http requests, set to info to disable
     server:
       level: info # Everything written to worker stderr is logged
       mode: raw
