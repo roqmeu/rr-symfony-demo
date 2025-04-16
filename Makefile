@@ -21,18 +21,28 @@ reup:
 sh:
 	$(DOCKER_COMPOSE) exec -it php bash
 
-init:
+install:
 	$(DOCKER_COMPOSE) exec php bash -c "composer install"
 	$(DOCKER_COMPOSE) exec php bash -c "bin/console c:c"
+
+reinstall:
+	$(DOCKER_COMPOSE) rm -vsf
+	$(DOCKER_COMPOSE) down -v --remove-orphans
+	rm -rf ./var/cache/prod
+	rm -rf ./vendor/*
+	$(DOCKER_COMPOSE) run --rm php bash -c "composer install && bin/console c:c"
+	make up
 
 prepare:
 	$(DOCKER_COMPOSE) exec php bash -c "bin/console c:c"
 	$(DOCKER_COMPOSE) exec php bash -c "composer dump-autoload --no-dev --classmap-authoritative"
 
 stress-fpm:
+	make up
 	make prepare
 	$(DOCKER) run --rm -it -p=8025:8025 -v .:/home/k6 --network=symfony-roadrunner-workshop-2025-04 ghcr.io/grafana/xk6-dashboard:latest run k6/php-fpm.js --out 'dashboard=export=php-fpm.report.html&period=5s&port=8025'
 
 stress-rr:
+	make up
 	make prepare
 	$(DOCKER) run --rm -it -p=8027:8027 -v .:/home/k6 --network=symfony-roadrunner-workshop-2025-04 ghcr.io/grafana/xk6-dashboard:latest run k6/roadrunner.js --out 'dashboard=export=roadrunner.report.html&period=5s&port=8027'

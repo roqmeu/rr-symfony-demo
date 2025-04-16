@@ -34,14 +34,14 @@ export const options = {
 };
 
 const commentId = random(1, 150);
-const postId = random(1, 150);
+const postId = random(1, 30);
 
 export function ok() {
     http.get(
         `http://php:8080/en/blog/ok`,
         {
             'tags': { 'name': 'ok' },
-            'timeout': '0.5s',
+            'timeout': '10s',
             'responseType': 'none'
         }
     );
@@ -52,7 +52,7 @@ export function get() {
         `http://php:8080/en/blog/comment/${commentId}`,
         {
             'tags': { 'name': 'get' },
-            'timeout': '0.5s',
+            'timeout': '10s',
             'responseType': 'none'
         }
     );
@@ -67,7 +67,7 @@ export function post() {
         {
             'headers': { 'Content-Type': 'application/json' },
             'tags': { 'name': 'post' },
-            'timeout': '0.5s',
+            'timeout': '10s',
             'responseType': 'none'
         }
     );

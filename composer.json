@@ -1,7 +1,7 @@
 {
     "name": "roqmeu/symfony-roadrunner-workshop-2025-04",
     "type": "project",
-    "description": "Podlodka PHP Crew: Optimise Symfony with RoadRunner",
+    "description": "Podlodka PHP Crew: Optimizing Symfony with RoadRunner",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "replace": {

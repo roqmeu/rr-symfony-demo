@@ -1,4 +1,4 @@
-# Podlodka PHP Crew: Optimise Symfony with RoadRunner
+# Podlodka PHP Crew: Optimizing Symfony with RoadRunner
 
 Репозиторий с примерами кода для воркшопа "Оптимизация Symfony-приложения при помощи RoadRunner"
 
