@@ -30,7 +30,7 @@ services:
     depends_on:
       - rabbitmq
       - redis
-    command: php-fpm
+    command: ./rr serve -c ./.rr.yaml
     restart: unless-stopped
 
   rabbitmq:
