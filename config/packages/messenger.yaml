@@ -4,20 +4,20 @@ framework:
 
         transports:
             async:
-                dsn: '%env(resolve:MESSENGER_TRANSPORT_DSN)%'
+                dsn: 'roadrunner://'
                 options:
-                    auto_setup: true
-                    verify: false
-                    confirm_timeout: 0.5
-                    connect_timeout: 0.5
-                    write_timeout: 0.5
-                    read_timeout: 0.5
-                    heartbeat: 60
-                    exchange:
-                        name: 'symfony-demo.async'
-                        type: direct
+                    queue_name: async
 
             failed: 'in-memory://'
 
         routing:
             'App\Message\CommentCreateMessage': async
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    messenger.transport.roadrunner.factory:
+        class: Roqmeu\Symfony\Messenger\Bridge\RoadRunner\Transport\RoadRunnerTransportFactory
+        tags: [ messenger.transport_factory ]

@@ -29,6 +29,25 @@ logs:
       level: info # Everything written to worker stderr is logged
       mode: raw
 
+amqp:
+  addr: amqp://rabbitmq:5672
+
+jobs:
+  num_pollers: 1
+  consume: [ "async" ]
+  pipelines:
+    async:
+      driver: amqp
+      config:
+        queue: symfony-demo.async
+        exchange: symfony-demo
+        exchange_type: direct
+        routing_key: symfony-demo.async
+  pool:
+    debug: false
+    num_workers: 1
+    command: "bin/console messenger:consume async --silent"
+
 # Uncomment to use metrics integration
 # rpc:
 #   listen: tcp://127.0.0.1:6001

@@ -27,3 +27,12 @@ baldinof_road_runner:
     # See https://github.com/baldinof/roadrunner-bundle#middlewares
     # middlewares:
     #     - App\Middleware\YourMiddleware
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # It's necessary to be able to run the Symfony Console without RoadRunner.
+    Spiral\Goridge\RPC\RPCInterface:
+        factory: ['Baldinof\RoadRunnerBundle\Helpers\RPCFactory', 'fromEnvironment']
