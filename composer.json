@@ -30,6 +30,7 @@
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/orm": "^3.0",
         "ramsey/uuid": "^4.0",
+        "roqmeu/roadrunner-messenger": "^1.0",
         "spiral/roadrunner-cli": "^2.6",
         "symfony/amqp-messenger": "^7",
         "symfony/cache": "^7",
@@ -88,5 +89,11 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/roqmeu/roadrunner-messenger.git"
+        }
+    ]
 }

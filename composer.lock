@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "624e86f007476a3098e9a4cd261cbe21",
+    "content-hash": "38961888fad867471c06beb24a1139a8",
     "packages": [
         {
             "name": "baldinof/roadrunner-bundle",
@@ -2010,6 +2010,57 @@
             "time": "2025-01-14T10:10:32+00:00"
         },
         {
+            "name": "roqmeu/roadrunner-messenger",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roqmeu/roadrunner-messenger.git",
+                "reference": "589de2aae2faba58386f6d13bd292aee5b465ad6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roqmeu/roadrunner-messenger/zipball/589de2aae2faba58386f6d13bd292aee5b465ad6",
+                "reference": "589de2aae2faba58386f6d13bd292aee5b465ad6",
+                "shasum": ""
+            },
+            "require": {
+                "baldinof/roadrunner-bundle": "^3.0",
+                "ext-igbinary": "*",
+                "ext-protobuf": "*",
+                "php": ">=8.1",
+                "spiral/roadrunner-jobs": "^4.0",
+                "symfony/messenger": "^6.4|^7.0"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest",
+                "symfony/event-dispatcher": "^6.4|^7.0",
+                "symfony/process": "^6.4|^7.0",
+                "symfony/property-access": "^6.4|^7.0",
+                "symfony/serializer": "^6.4|^7.0"
+            },
+            "type": "symfony-messenger-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Roqmeu\\Symfony\\Messenger\\Bridge\\RoadRunner\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yaroslav Tarasov",
+                    "email": "roqmeu@gmail.com"
+                }
+            ],
+            "description": "Symfony RoadRunner extension Messenger Bridge",
+            "support": {
+                "source": "https://github.com/roqmeu/roadrunner-messenger/tree/1.0.0",
+                "issues": "https://github.com/roqmeu/roadrunner-messenger/issues"
+            },
+            "time": "2025-01-13T17:00:18+00:00"
+        },
+        {
             "name": "spiral/core",
             "version": "3.15.7",
             "source": {
@@ -2599,6 +2650,88 @@
                 }
             ],
             "time": "2024-04-26T11:16:10+00:00"
+        },
+        {
+            "name": "spiral/roadrunner-jobs",
+            "version": "v4.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roadrunner-php/jobs.git",
+                "reference": "52ae1fb934604cd81b69a91cdf764f9c2b9b5fa7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roadrunner-php/jobs/zipball/52ae1fb934604cd81b69a91cdf764f9c2b9b5fa7",
+                "reference": "52ae1fb934604cd81b69a91cdf764f9c2b9b5fa7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=8.1",
+                "ramsey/uuid": "^3 || ^4",
+                "roadrunner-php/roadrunner-api-dto": "^1.0",
+                "spiral/goridge": "^4.0",
+                "spiral/roadrunner": "^2023.1 || ^2024.1",
+                "spiral/roadrunner-worker": "^3.0"
+            },
+            "require-dev": {
+                "google/protobuf": "^3.17 || ^4.0",
+                "phpunit/phpunit": "^10.0",
+                "roave/security-advisories": "dev-master",
+                "vimeo/psalm": ">=5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spiral\\RoadRunner\\Jobs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Titov (wolfy-j)",
+                    "email": "wolfy-j@spiralscout.com"
+                },
+                {
+                    "name": "Pavel Buchnev (butschster)",
+                    "email": "pavel.buchnev@spiralscout.com"
+                },
+                {
+                    "name": "Aleksei Gagarin (roxblnfk)",
+                    "email": "alexey.gagarin@spiralscout.com"
+                },
+                {
+                    "name": "Maksim Smakouz (msmakouz)",
+                    "email": "maksim.smakouz@spiralscout.com"
+                },
+                {
+                    "name": "Kirill Nesmeyanov (SerafimArts)",
+                    "email": "kirill.nesmeyanov@spiralscout.com"
+                },
+                {
+                    "name": "RoadRunner Community",
+                    "homepage": "https://github.com/spiral/roadrunner/graphs/contributors"
+                }
+            ],
+            "description": "RoadRunner Queues (Jobs) plugin API library",
+            "homepage": "https://roadrunner.dev/",
+            "support": {
+                "chat": "https://discord.gg/V6EK4he",
+                "docs": "https://docs.roadrunner.dev",
+                "forum": "https://forum.roadrunner.dev/",
+                "issues": "https://github.com/roadrunner-server/roadrunner/issues",
+                "source": "https://github.com/roadrunner-php/jobs/tree/v4.6.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/roadrunner-server",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-11-30T15:38:28+00:00"
         },
         {
             "name": "spiral/roadrunner-worker",
