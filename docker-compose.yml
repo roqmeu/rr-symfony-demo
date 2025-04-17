@@ -25,6 +25,8 @@ services:
       PHP_IDE_CONFIG: "serverName=symfony-roadrunner-workshop-2025-04.lan"
     ports:
       - 8022:8080
+    tmpfs:
+      - /var/www/tmpfs-cache
     volumes:
       - .:/var/www/html
     depends_on:
