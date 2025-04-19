@@ -15,14 +15,13 @@ http:
 
 logs:
   mode: production
+  level: warn
   channels:
     http:
       level: warn # Log all http requests, set to info to disable
     server:
       level: info # Everything written to worker stderr is logged
       mode: raw
-    metrics:
-      level: error
 
 # Uncomment to use metrics integration
 # rpc:
