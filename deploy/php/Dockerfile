@@ -22,6 +22,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY ./deploy/php/common.fpm.conf /usr/local/etc/php-fpm.d/zzz-common.conf
 COPY ./deploy/php/common.php.ini /usr/local/etc/php/conf.d/zzz-common.ini
 
+RUN pecl install protobuf; \
+    docker-php-ext-enable protobuf; \
+    docker-php-ext-install sockets
+
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
 USER www-data
