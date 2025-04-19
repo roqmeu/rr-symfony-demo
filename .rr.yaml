@@ -9,8 +9,11 @@ http:
   address: 0.0.0.0:8080
   pool:
     debug: false
-    max_jobs: 1000
+    max_jobs: 100000
     num_workers: 4
+    supervisor:
+      watch_tick: 5s
+      max_worker_memory: 128
   middleware: [ "gzip" ]
 
 logs:
