@@ -24,6 +24,8 @@ COPY ./deploy/php/common.php.ini /usr/local/etc/php/conf.d/zzz-common.ini
 
 RUN docker-php-ext-install sockets; \
     mkdir -p /var/www/tmpfs-cache; \
+    pecl install igbinary; \
+    docker-php-ext-enable igbinary; \
     pecl install protobuf; \
     docker-php-ext-enable protobuf
 

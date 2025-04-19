@@ -2,6 +2,9 @@ framework:
     messenger:
         failure_transport: failed
 
+        serializer:
+            default_serializer: messenger.transport.igbinary_serializer
+
         transports:
             async:
                 dsn: 'roadrunner://'
@@ -21,3 +24,6 @@ services:
     messenger.transport.roadrunner.factory:
         class: Roqmeu\Symfony\Messenger\Bridge\RoadRunner\Transport\RoadRunnerTransportFactory
         tags: [ messenger.transport_factory ]
+
+    messenger.transport.igbinary_serializer:
+        class: Roqmeu\Symfony\Messenger\Bridge\RoadRunner\Serialization\IgbinarySerializer

@@ -8,3 +8,13 @@ framework:
                 adapter: cache.app
             doctrine.system_cache_pool:
                 adapter: cache.system
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    cache.default_marshaller:
+        class: Symfony\Component\Cache\Marshaller\DefaultMarshaller
+        arguments:
+            $useIgbinarySerialize: true
