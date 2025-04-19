@@ -5,6 +5,9 @@ server:
   env:
     - APP_RUNTIME: Baldinof\RoadRunnerBundle\Runtime\Runtime
 
+rpc:
+  listen: unix:///var/www/rr.sock
+
 http:
   address: 0.0.0.0:8080
   pool:
