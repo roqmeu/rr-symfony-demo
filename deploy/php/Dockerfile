@@ -23,8 +23,8 @@ COPY ./deploy/php/common.fpm.conf /usr/local/etc/php-fpm.d/zzz-common.conf
 COPY ./deploy/php/common.php.ini /usr/local/etc/php/conf.d/zzz-common.ini
 
 RUN mkdir -p /var/www/tmpfs-cache; \
-    pecl install protobuf; \
-    docker-php-ext-enable protobuf; \
+    pecl install igbinary protobuf; \
+    docker-php-ext-enable igbinary protobuf; \
     docker-php-ext-install sockets
 
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
